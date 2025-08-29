@@ -168,31 +168,31 @@ export default {
           id: 'd3',
           title: 'D3 - Developer 3',
           description: 'Mid-level developer with solid technical skills',
-          requirements: { technology: 2, system: 1, people: 1, process: 1, influence: 1 }
+          requirements: { technology: 2, system: 2, people: 1, process: 1, influence: 1 }
         },
         {
           id: 'd4',
           title: 'D4 - Developer 4 (Senior)',
           description: 'Senior developer with strong technical expertise',
-          requirements: { technology: 2, system: 2, people: 2, process: 2, influence: 2 }
+          requirements: { technology: 3, system: 2, people: 2, process: 2, influence: 2 }
         },
         {
           id: 'd5',
           title: 'D5 - Developer 5 (Senior)',
           description: 'Senior developer with advanced technical skills',
-          requirements: { technology: 3, system: 2, people: 2, process: 2, influence: 2 }
+          requirements: { technology: 3, system: 3, people: 2, process: 2, influence: 2 }
         },
         {
           id: 'd6',
-          title: 'D6 - Developer 6 (Senior)',
+          title: 'D6 - Developer 6 (Staff)',
           description: 'Staff-level developer with deep expertise',
-          requirements: { technology: 3, system: 3, people: 2, process: 2, influence: 3 }
+          requirements: { technology: 4, system: 3, people: 3, process: 3, influence: 3 }
         },
         {
           id: 'd7',
-          title: 'D7 - Developer 7 (Senior)',
+          title: 'D7 - Developer 7 (Principal)',
           description: 'Principal developer with exceptional technical leadership',
-          requirements: { technology: 4, system: 3, people: 3, process: 3, influence: 3 }
+          requirements: { technology: 4, system: 4, people: 3, process: 3, influence: 4 }
         },
         
         // Tech Lead Levels
