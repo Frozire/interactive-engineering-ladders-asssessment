@@ -374,6 +374,16 @@ export default {
         .slice(0, 6) // Show up to 6 matches
     }
   },
+  beforeUnmount() {
+    // Clean up chart when component is destroyed
+    if (this.chart) {
+      try {
+        this.chart.destroy()
+      } catch (error) {
+        console.warn('Error destroying chart on unmount:', error)
+      }
+    }
+  },
   methods: {
     updateProfile() {
       this.$nextTick(() => {
@@ -385,8 +395,14 @@ export default {
       
       const ctx = this.$refs.chartCanvas.getContext('2d')
       
+      // Safely destroy existing chart
       if (this.chart) {
-        this.chart.destroy()
+        try {
+          this.chart.destroy()
+        } catch (error) {
+          console.warn('Error destroying chart:', error)
+        }
+        this.chart = null
       }
       
       const data = {
@@ -410,28 +426,35 @@ export default {
         }]
       }
       
-      this.chart = new Chart(ctx, {
-        type: 'radar',
-        data: data,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              beginAtZero: true,
-              max: 5,
-              ticks: {
-                stepSize: 1
+      try {
+        this.chart = new Chart(ctx, {
+          type: 'radar',
+          data: data,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+              duration: 200
+            },
+            scales: {
+              r: {
+                beginAtZero: true,
+                max: 5,
+                ticks: {
+                  stepSize: 1
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: false
               }
             }
-          },
-          plugins: {
-            legend: {
-              display: false
-            }
           }
-        }
-      })
+        })
+      } catch (error) {
+        console.error('Error creating chart:', error)
+      }
     }
   }
 }
