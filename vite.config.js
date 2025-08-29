@@ -3,5 +3,5 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.NODE_ENV === 'production' ? '/engineer-ladder-interactive/' : '/'
+  base: process.env.NODE_ENV === 'production' ? '/interactive-engineering-ladders-asssessment/' : '/'
 })
