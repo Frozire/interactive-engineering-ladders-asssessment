@@ -1,5 +1,7 @@
 # Engineering Ladders Interactive Assessment
 
+🚀 **[Live Demo](https://frozire.github.io/interactive-engineering-ladders-asssessment/)**
+
 An interactive Vue.js application that implements the [Engineering Ladders framework](https://github.com/jorgef/engineeringladders) by Jorge Fernandez. This tool allows users to assess their skills across five key dimensions and discover which career profile matches their current level.
 
 ## Features
