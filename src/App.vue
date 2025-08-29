@@ -162,7 +162,7 @@ export default {
           id: 'd2',
           title: 'D2 - Developer 2',
           description: 'Junior developer with some experience',
-          requirements: { technology: 1, system: 1, people: 1, process: 1, influence: 1 }
+          requirements: { technology: 2, system: 1, people: 1, process: 1, influence: 1 }
         },
         {
           id: 'd3',
@@ -368,9 +368,18 @@ export default {
         }
       })
       
-      // Sort final results by match score
+      // Sort final results by match score, then by level (prefer lower levels for ties)
       return filteredMatches
-        .sort((a, b) => b.matchScore - a.matchScore)
+        .sort((a, b) => {
+          // First sort by match score (highest first)
+          if (Math.abs(a.matchScore - b.matchScore) > 0.001) {
+            return b.matchScore - a.matchScore
+          }
+          // If match scores are essentially equal, prefer lower levels
+          const aLevel = parseInt(a.id.match(/\d+/)?.[0] || '999')
+          const bLevel = parseInt(b.id.match(/\d+/)?.[0] || '999')
+          return aLevel - bLevel
+        })
         .slice(0, 6) // Show up to 6 matches
     }
   },
